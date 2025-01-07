@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View, Text, ViewComponent, SafeAreaView, Dimensions, TextInput } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -6,104 +6,195 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import { Feather } from '@expo/vector-icons';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+const primary500 = 'rgb(185, 26, 26)' // Warna utama
 
 export default function TabTwoScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    <SafeAreaView style={{ backgroundColor: '#dddd' }}>
+    {/* Hero View */}
+    <View style={[container.hero, {backgroundColor: primary500}]}>
+      <View style={[flex.row, {gap: 10}]}>
+        <Image source={require('../../assets/images/codpoints.png')}
+        style={[square(80), radius.circle]}></Image>
+        <View style={[flex.column]}>
+          <Text style={[text.h1, {color: 'white', fontWeight: '700'}]}>
+            Madyan Arashy
+          </Text>
+          <Text style={[text.h3, {color: 'white'}]}>
+            Kopi Konco
+          </Text>
+        </View>
+      </View>
+    </View>
+
+    {/* Statistik View Container */}
+    <View style={[container.default, flex.column, {width: screenWidth}]}>
+      <Text style={[text.h1, {fontWeight: 800, marginBottom: 6, color: primary500}]}>
+        Statistik
+      </Text>
+      {/* Wrapper Buletan & tulisan */}
+      <View style={[flex.row, {justifyContent: 'space-between', maxWidth: (screenWidth - 30)}]}> 
+        {/* Barisan pertama */}
+        <View style={[flex.column, {justifyContent: 'space-between', gap: 12}]}>
+          {/* Satu bulet + tulisan disampingnya */}
+          <View style={[flex.row, {gap: 6}]}> 
+          <View style={[{ padding: 12, backgroundColor: primary500}, radius.circle]}>
+            <Feather name="target" size={32} color={'white'}/>
+          </View>
+
+            <View style={flex.column}>
+              <Text style={[text.h1, {fontWeight: 900}]}>
+                10
+              </Text>
+              <Text style={text.h3}>
+                Lessons
+              </Text>
+            </View>
+          </View>
+          {/* Satu bulet + tulisan disampingnya */}
+          <View style={[flex.row, {gap: 6}]}>
+          <View style={[{ padding: 12, backgroundColor: primary500, alignSelf: 'center'}, radius.circle]}>              <Feather name="target" size={32} color={'white'}/>
+            </View>
+            <View style={flex.column}>
+              <Text style={[text.h1, {fontWeight: 900}]}>
+                20
+              </Text>
+              <Text style={text.h3}>
+                Streak
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Barisan kedua */}
+        <View style={[flex.column, {justifyContent: 'space-between', gap: 12}]}>
+          {/* Satu bulet + tulisan disampingnya */}
+          <View style={[flex.row, {gap: 6}]}> 
+            {/* Buletan */}
+            <View style={[{ padding: 12, backgroundColor: primary500, alignSelf: 'center'}, radius.circle]}>              <Feather name="target" size={32} color={'white'}/>
+            </View>
+            {/* Dua Baris Teks */}
+            <View style={flex.column}>
+              <Text style={[text.h1, {fontWeight: 900}]}>
+                30
+              </Text>
+              <Text style={text.h3}>
+                XP
+              </Text>
+            </View>
+          </View>
+          {/* Satu bulet + tulisan disampingnya */}
+          <View style={[flex.row, {gap: 6}]}>
+            {/* Buletan */}
+            <View style={[{ padding: 12, backgroundColor: primary500}, radius.circle]}>
+              <Feather name="target" size={32} color={'white'}/>
+            </View>
+            {/* Dua baris teks */}
+            <View style={flex.column}>
+              <Text style={[text.h1, {fontWeight: 900}]}>
+                40
+              </Text>
+              <Text style={text.h3}>
+                Akurasi
+              </Text>
+            </View>
+          </View>
+        </View>
+
+      </View>
+    </View>
+
+    {/* Akun View Container */}
+    <View style={[container.default]}>
+      <Text style={[text.h1, {fontWeight: 800, marginBottom: 6, color: primary500}]}>
+        Akun
+      </Text>
+      <View style={[flex.column, {gap: 10}]}>
+        <View style={[flex.row, {justifyContent: 'space-between', maxWidth: (screenWidth - 40)}]}>
+          <Text style={text.h2}>
+            Detail Bisnis
+          </Text>
+        </View>
+      </View>
+    </View>
+   </SafeAreaView>
+   
   );
 }
 
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
+const container = StyleSheet.create({
+  default: {
+    marginVertical: 10,
+    width: screenWidth,
+    alignSelf: 'center',
+    paddingHorizontal: 12,
   },
-  titleContainer: {
+  hero: {
+    paddingTop: 50,
+    paddingBottom: 30,
+    gap: 10,
+    paddingHorizontal: 12,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  small: {
+    width: screenWidth,
+    alignSelf: 'center',
+    paddingHorizontal: 48,
+  }
+})
+
+const flex = StyleSheet.create({
+  row: {
+    alignItems: 'center',
     flexDirection: 'row',
-    gap: 8,
   },
-});
+  column: {
+    flexDirection: 'column'
+  },
+  rowReverse: {
+    flexDirection: 'row-reverse'
+  },
+  columnReverse: {
+    flexDirection: 'column-reverse'
+  }
+})
+
+const text = StyleSheet.create({
+  h1: {
+    fontSize: 20,
+  },
+  h2: {
+    fontSize: 17,
+  },
+  h3: {
+    fontSize: 15,
+  },
+  h4: {
+    fontSize: 11,
+  }
+})
+
+const radius = StyleSheet.create({
+  circle: {
+    borderRadius: 100
+  },
+  sm: {
+    borderRadius: 20
+  },
+  md: {
+    borderRadius: 40
+  },
+})
+
+const square = (size: number) => ({
+  width: size,
+  height: size
+})
+
+const addFlex = (direction: string) => ({
+  flex: 1
+})
