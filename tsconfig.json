@@ -6,7 +6,9 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "strictNullChecks": false,
+    "alwaysStrict": false,
   },
   "include": [
     "**/*.ts",

@@ -1,5 +1,7 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { StyleSheet } from 'react-native';
+import { Image, StyleSheet, Platform, View, Text, ViewComponent, SafeAreaView, Dimensions, TextInput, Button, ScrollView } from 'react-native';
+
+
 import Animated, {
   interpolate,
   useAnimatedRef,
