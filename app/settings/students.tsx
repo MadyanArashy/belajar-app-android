@@ -19,7 +19,7 @@ export default function StudentsScreen() {
         </View>
         <View style={tw`flex-col items-center`}>
           <Image source={require('../../assets/images/henry-cavill.jpg')} style={[tw`rounded-lg`, {width: (screenWidth * 0.4), height: (screenWidth * 0.4)}]}/>
-          <Text style={tw`text-lg text-center font-bold`}>Fadhlan Putra Peninjak</Text>
+          <Text style={tw`text-lg text-center font-bold`}>Fadhlan Putra Pamungih</Text>
         </View>
       </View>
       <View style={tw`flex-row w-full justify-around`}>

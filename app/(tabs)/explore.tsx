@@ -13,7 +13,7 @@ export default function TabTwoScreen() {
           <View style={tw`flex flex-col justify-center items-center gap-6`}>
             <Image source={require('../../assets/images/fullbody-man.jpg')} style={tw`w-30 h-30 rounded-full`} resizeMode='cover'/>
             <View style={tw`flex flex-col text-center mx-auto`}>
-              <Text style={tw`text-3xl font-bold text-center`}>Madyan Arashy</Text>
+              <Text style={tw`text-3xl font-bold text-center dark:text-white`}>Madyan Arashy</Text>
               <Text style={tw`text-lg font-medium text-gray-500 text-center`}>Fullstack Programmer | Daily</Text>
             </View>
             <View style={tw`flex flex-row gap-6`}>

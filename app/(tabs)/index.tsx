@@ -4,13 +4,15 @@ import tw from 'twrnc';
 
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import EnkapsulasiTombol from '@/components/EnkapsulasiTombol';
+import TombolKartu from '@/components/TombolKartu';
 
 export default function HomeScreen() {
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={tw`flex flex-col justify-center items-center mb-10`}>
-          <ImageBackground source={require('../../assets/images/fullbody-man.jpg')} style={tw`w-101 h-300 bg-cover mx-auto`}>
+          <ImageBackground source={require('../../assets/images/fullbody-man.jpg')} style={tw`w-101 h-300 mx-auto`}>
             <View
               style={tw`mt-90 bg-yellow-300 px-6 py-12 rounded-t-3xl mr-2 flex flex-col gap-6 h-full`}
             >
@@ -60,6 +62,9 @@ export default function HomeScreen() {
                   Hire Me
                 </Text>
               </TouchableOpacity>
+
+              <EnkapsulasiTombol initialColor='purple' initialText='Ayo pukul aku pukul aku' initialTextColor='orange'/>
+              <TombolKartu title='Kartuku' desc='Contoh deskripsi sebuah kartu' textButton='Isi Teks Tombol' sourceImage={require('../../assets/images/john-cina.jpg')}/>
 
               <View style={tw`flex-row items-center w-100 gap-5`}>
                 <View>

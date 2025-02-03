@@ -9,6 +9,7 @@
     },
     "strictNullChecks": false,
     "alwaysStrict": false,
+    "esModuleInterop": true
   },
   "include": [
     "**/*.ts",
